@@ -40,9 +40,9 @@ public class BaseTest {
         baseDriver = WebDriverRunner.getWebDriver();
     }
 
-    /*@After
+    @After
     public void killDriver()
     {
         WebDriverRunner.closeWebDriver();
-    }*/
+    }
 }

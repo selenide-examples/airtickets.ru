@@ -1,17 +1,11 @@
 package com.sidenis.vasidzius;
 
-import com.codeborne.selenide.SelenideElement;
-import com.codeborne.selenide.WebDriverRunner;
+import com.codeborne.selenide.Selenide;
 import org.junit.Assert;
 import org.junit.Test;
-import org.openqa.selenium.By;
-import org.openqa.selenium.NoSuchElementException;
-import org.openqa.selenium.TimeoutException;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
-import static com.codeborne.selenide.Selenide.*;
+import static com.codeborne.selenide.Selenide.page;
+
 
 /**
  * Created by VKov on 1/18/2016.
@@ -24,7 +18,7 @@ public class Test1 extends BaseTest {
         //open("http://www.airtickets.ru/bileti-aeroflot?gclid=CNzJ_-DQw8UCFcL3cgodeKwA0w");
 
         //work with First Page
-        FirstPageDirection firstPageDirection = open("http://www.airtickets.ru/bileti-aeroflot?gclid=CNzJ_-DQw8UCFcL3cgodeKwA0w", FirstPageDirection.class);
+        FirstPageDirection firstPageDirection = Selenide.open("http://www.airtickets.ru/bileti-aeroflot?gclid=CNzJ_-DQw8UCFcL3cgodeKwA0w", FirstPageDirection.class);
         firstPageDirection.addDirectionFrom("Санкт");
         firstPageDirection.addDirectionTo("Москва");
         Assert.assertEquals("Месяц отправления равен текущему месяцу", firstPageDirection.getMonthDeparture(), firstPageDirection.getCurrentMonth());
@@ -45,6 +39,16 @@ public class Test1 extends BaseTest {
         //work with forth page
         ForthPagePassengerInfo forthPagePassengerInfo = page(ForthPagePassengerInfo.class);
         forthPagePassengerInfo.setPassengerInfo("Mr","Vasiliy", "Kovalchenko", "7", "2", "1986", "4006875145", "12","10","2017");
+        forthPagePassengerInfo.setContactPersonInfo("SaintPetersburg", "9054568798", "ivan@gmail.com");
+        forthPagePassengerInfo.clickNext();
+
+        //work with FifthPage
+        FifthPage fifthPage = page(FifthPage.class);
+        fifthPage.setCreditCardNumber("5213456578981234");
+        fifthPage.setMonthExpirationCreditCard("02");
+
+        Assert.assertTrue("Кнопка 'купить билет' видна", fifthPage.getButton().isDisplayed());
+
 
 
 
