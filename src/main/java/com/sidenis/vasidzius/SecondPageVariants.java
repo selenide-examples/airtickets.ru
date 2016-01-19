@@ -15,7 +15,7 @@ public class SecondPageVariants {
     public void setRandomPriceInfoAndRandomRadioForDepartureAndReturnAndClickReserveButton()
     {
         //get all Price-Info
-        sleep(2000);
+        sleep(2000);//if delete this the calculation will not be done. I dont know why
         List<SelenideElement> priceInfoList = $$(".price-info");
         SelenideElement priceInfo = priceInfoList.get((int)(Math.random() * (priceInfoList.size()-1)));
         //get both Price Table from priceInfo

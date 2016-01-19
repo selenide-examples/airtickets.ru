@@ -7,8 +7,9 @@ import org.openqa.selenium.support.FindBy;
 /**
  * Created by VKov on 1/18/2016.
  */
-public class ForthPagePassengerInfo {
+public class FourthPagePassengerInfo {
 
+    //example of using PageObject and Blocks. Block here are FramePassengerInfo and FrameContactPersonInfo
     @FindBy(xpath = "(.//*[@class='frame'])[1]")
     private FramePassengerInfo passengerInfo;
 
@@ -34,7 +35,6 @@ public class ForthPagePassengerInfo {
         contactPersonInfo.setMobPhoneContactPerson(mobileNumber);
         contactPersonInfo.setEmailContactPerson(emailAddress);
     }
-
 
     public void clickNext() {
         contactPersonInfo.getNext().click();

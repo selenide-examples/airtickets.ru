@@ -13,22 +13,19 @@ import static com.codeborne.selenide.Selenide.$;
  */
 public class FirstPageDirection {
 
-    public void addDirectionFrom(String str)
+    public void addDirectionFrom(String city, String airport)
     {
-        $("#from").setValue(str);
-        $("#autocomplete").$(withText("LED")).click();
+        $("#from").setValue(city);
+        $("#autocomplete").$(withText(airport)).click();
     }
 
-    public void addDirectionTo(String str) {
-        $("#to").setValue(str);
-        $("#autocomplete").$(withText("MOW")).click();
+    public void addDirectionTo(String city, String airport) {
+        $("#to").setValue(city);
+        $("#autocomplete").$(withText(airport)).click();
     }
-
 
     public String getMonthDeparture() {
-        //$("flight_selector_middle_departure").$("airPlugin_select_text").getText()
         return $(".flight_selector_middle_departure").$(".airPlugin_select_text").getText();
-        //.flight_selector_middle_departure > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > select:nth-child(2)
     }
 
     public String getCurrentMonth() {

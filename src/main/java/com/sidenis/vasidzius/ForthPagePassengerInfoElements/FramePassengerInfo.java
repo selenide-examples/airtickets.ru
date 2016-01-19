@@ -4,6 +4,8 @@ import com.codeborne.selenide.ElementsContainer;
 import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.support.FindBy;
 
+import static com.codeborne.selenide.Selenide.$;
+
 /**
  * Created by VKov on 1/18/2016.
  */
@@ -19,7 +21,7 @@ public class FramePassengerInfo extends ElementsContainer {
     private SelenideElement firstPassengerName;
 
     @FindBy(id = "pd0")
-    private SelenideElement dayBirth;
+    private SelenideElement dayBirth = $("#pd0");
 
     @FindBy(id = "pm0")
     private SelenideElement monthBirth;
