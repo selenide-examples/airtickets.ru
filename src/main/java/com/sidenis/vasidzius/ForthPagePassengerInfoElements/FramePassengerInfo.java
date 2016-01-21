@@ -21,7 +21,7 @@ public class FramePassengerInfo extends ElementsContainer {
     private SelenideElement firstPassengerName;
 
     @FindBy(id = "pd0")
-    private SelenideElement dayBirth = $("#pd0");
+    private SelenideElement dayBirth;
 
     @FindBy(id = "pm0")
     private SelenideElement monthBirth;
