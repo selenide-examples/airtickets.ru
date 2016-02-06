@@ -1,5 +1,6 @@
 package com.sidenis.vasidzius;
 
+import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$$;
 
 /**
@@ -7,6 +8,6 @@ import static com.codeborne.selenide.Selenide.$$;
  */
 public class ThirdPageConfirmation {
     public void clickConfirmationReserve() {
-        $$(".price-info").get(0).$(".airButton").click();
+        $(".price-info").$(".airButton").click();
     }
 }

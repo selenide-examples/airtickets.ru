@@ -14,25 +14,46 @@ public class SecondPageVariants {
 
     public void setRandomPriceInfoAndRandomRadioForDepartureAndReturnAndClickReserveButton()
     {
-        //get all Price-Info
         sleep(2000);//if delete this the calculation will not be done. I dont know why
-        List<SelenideElement> priceInfoList = $$(".price-info");
-        SelenideElement priceInfo = priceInfoList.get((int)(Math.random() * (priceInfoList.size()-1)));
+        SelenideElement priceInfo = getRandomPriceInfo();
+        SelenideElement priceTableForDeparture = getPriceTableForDeparture(priceInfo);
+        SelenideElement priceTableForReturn = getPriceTableForReturn(priceInfo);
+        SelenideElement radioDeparture = getRandomRadio(priceTableForDeparture);
+        radioDeparture.click();
+        SelenideElement radioReturn = getRandomRadio(priceTableForReturn);
+        radioDeparture.click();
+        radioReturn.click();
+
+        priceInfo.$(".airButton").click();
+    }
+
+    private SelenideElement getRandomRadio(SelenideElement priceTable) {
+        //get all radio for priceTable
+        List<SelenideElement> radioList = priceTable.$$(".radio");
+        //select random radio
+        SelenideElement radio = radioList.get((int)(Math.random() * (radioList.size()-1)));
+        return radio;
+    }
+
+    private SelenideElement getPriceTableForReturn(SelenideElement priceInfo)
+    {
         //get both Price Table from priceInfo
         List<SelenideElement> priceTableList = priceInfo.$$(".price-table");
-        //get Price Table for departure and Return
-        SelenideElement priceTableForDeparture = priceTableList.get(0);
-        SelenideElement priceTableForReturn = priceTableList.get(1);
-        //get all radio for both priceTable
-        List<SelenideElement> radioListDeparture = priceTableForDeparture.$$(".radio");
-        List<SelenideElement> radioListReturn = priceTableForReturn.$$(".radio");
-        //select random radio for both priceTable
-        SelenideElement radioDeparture = radioListDeparture.get((int)(Math.random() * (radioListDeparture.size()-1)));
-        radioDeparture.click();
-        SelenideElement radioReturn = radioListReturn.get((int)(Math.random() * (radioListReturn.size()-1)));
-        radioReturn.click();
-        //click ReserveButton
-        priceInfo.$(".airButton").click();
+        return priceTableList.get(1);
+    }
 
+    private SelenideElement getPriceTableForDeparture(SelenideElement priceInfo)
+    {
+        //get both Price Table from priceInfo
+        List<SelenideElement> priceTableList = priceInfo.$$(".price-table");
+        return priceTableList.get(0);
+    }
+
+    private SelenideElement getRandomPriceInfo()
+    {
+        //get all Price-Info
+        List<SelenideElement> priceInfoList = $$(".price-info");
+        SelenideElement priceInfo = priceInfoList.get((int)(Math.random() * (priceInfoList.size()-1)));
+        return priceInfo;
     }
 }

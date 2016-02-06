@@ -1,5 +1,6 @@
 package com.sidenis.vasidzius;
 
+import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Selenide;
 import org.junit.Assert;
 import org.junit.Test;
@@ -10,10 +11,10 @@ import static com.codeborne.selenide.Selenide.page;
 /**
  * Created by VKov on 1/18/2016.
  */
-public class TestBuyingTickets extends BaseTest {
+public class TestBuyingTickets{
 
     @Test
-    public void test1()
+    public void testBuyingTickets()
     {
 
         //work with First Page
@@ -32,10 +33,11 @@ public class TestBuyingTickets extends BaseTest {
 
             SecondPageVariants secondPageVariants = page(SecondPageVariants.class);
             secondPageVariants.setRandomPriceInfoAndRandomRadioForDepartureAndReturnAndClickReserveButton();
+            RareAppearPageBetweenSecondAndThirdPages rarePage = page(RareAppearPageBetweenSecondAndThirdPages.class);
 
-            if($("#content > div:nth-child(3) > a:nth-child(1)").exists())
+            if(rarePage.errorButtonMessage.exists())
             {
-                $("#content > div:nth-child(3) > a:nth-child(1)").click();
+                rarePage.errorButtonMessage.click();
             }
             else
                 flag = false;
@@ -55,8 +57,6 @@ public class TestBuyingTickets extends BaseTest {
         FifthPage fifthPage = page(FifthPage.class);
         fifthPage.setCreditCardNumber("5213456578981234");
         fifthPage.setMonthExpirationCreditCard("02");
-
-        Assert.assertTrue("Кнопка 'купить билет' видна", fifthPage.getButton().isDisplayed());
-
+        fifthPage.getButton().shouldBe(Condition.visible);
     }
 }
