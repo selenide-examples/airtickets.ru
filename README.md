@@ -5,3 +5,5 @@ Test buys tickets from Saint-Petersburg to Moscow and back
 
 I tried PageObject as A.Solntsev described here http://ru.selenide.org/documentation/page-objects.html in class SecondPageVariants and 
 classic PageObject in class FourthPagePassengerInfo
+
+Screencast - https://youtu.be/xS1KxNYgRsk
