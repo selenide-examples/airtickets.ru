@@ -4,8 +4,6 @@ import com.codeborne.selenide.ElementsContainer;
 import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.support.FindBy;
 
-import static com.codeborne.selenide.Selenide.$;
-
 /**
  * Created by VKov on 1/18/2016.
  */
@@ -51,6 +49,7 @@ public class FramePassengerInfo extends ElementsContainer {
 
     public void setFirstPassengerName(String firstPassengerName) {
         this.firstPassengerName.setValue(firstPassengerName);
+
     }
 
     public void setDayBirth(String dayBirth) {
