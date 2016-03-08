@@ -5,8 +5,9 @@ import com.codeborne.selenide.Selenide;
 import org.junit.Assert;
 import org.junit.Test;
 
-import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.page;
+import static org.hamcrest.CoreMatchers.anyOf;
+import static org.hamcrest.core.Is.is;
 
 /**
  * Created by VKov on 1/18/2016.
@@ -21,8 +22,8 @@ public class TestBuyingTickets{
         FirstPageDirection firstPageDirection = Selenide.open("http://www.airtickets.ru/bileti-aeroflot?gclid=CNzJ_-DQw8UCFcL3cgodeKwA0w", FirstPageDirection.class);
         firstPageDirection.addDirectionFrom("Санкт", "LED");
         firstPageDirection.addDirectionTo("Москва", "MOW");
-        Assert.assertEquals("Месяц отправления не равен текущему месяцу", firstPageDirection.getMonthDeparture(), firstPageDirection.getCurrentMonth());
-        Assert.assertEquals("Месяц прибытия не равен текущему месяцу", firstPageDirection.getMonthReturn(), firstPageDirection.getCurrentMonth());
+        Assert.assertThat("Месяц отправления не равен текущему месяцу или следующему месяцу", firstPageDirection.getMonthDeparture(), anyOf(is(firstPageDirection.getCurrentMonth()), is(firstPageDirection.getNextMonth())));
+        Assert.assertThat("Месяц прибытия не равен текущему или следующему месяцу", firstPageDirection.getMonthReturn(), anyOf(is(firstPageDirection.getCurrentMonth()), is(firstPageDirection.getNextMonth())));
         Assert.assertTrue("День отрпавления больше дня возвращения", firstPageDirection.getDayDeparture() < firstPageDirection.getDayReturn());
         firstPageDirection.clickButtonFind();
 

@@ -34,6 +34,12 @@ public class FirstPageDirection {
         return month.getDisplayName(TextStyle.FULL_STANDALONE, loc);
     }
 
+    public String getNextMonth() {
+        Month month = Month.of(new GregorianCalendar().getTime().getMonth() + 2);
+        Locale loc = Locale.forLanguageTag("ru");
+        return month.getDisplayName(TextStyle.FULL_STANDALONE, loc);
+    }
+
     public String getMonthReturn() {
         return $(".flight_selector_middle_return").$(".flight_selector_middle_departure_return_dropdown1").$(".airPlugin_select_text").getText();
     }
