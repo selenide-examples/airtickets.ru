@@ -7,3 +7,5 @@ I tried PageObject as A.Solntsev described here http://ru.selenide.org/documenta
 classic PageObject in class FourthPagePassengerInfo
 
 Screencast - https://youtu.be/xS1KxNYgRsk
+
+Article with ezplanations http://ru.selenide.org/2016/04/17/airtickets
