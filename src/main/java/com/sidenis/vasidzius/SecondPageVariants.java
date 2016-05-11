@@ -31,7 +31,7 @@ public class SecondPageVariants {
         //get all radio for priceTable
         List<SelenideElement> radioList = priceTable.$$(".radio");
         //select random radio
-        SelenideElement radio = radioList.get((int)(Math.random() * (radioList.size()-1)));
+        SelenideElement radio = radioList.get((int)(Math.round(Math.random() * (radioList.size()-1))));
         return radio;
     }
 
