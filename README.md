@@ -8,4 +8,4 @@ classic PageObject in class FourthPagePassengerInfo
 
 Screencast - https://youtu.be/xS1KxNYgRsk
 
-Article with ezplanations http://ru.selenide.org/2016/04/17/airtickets
+Article with explanations http://ru.selenide.org/2016/04/17/airtickets
