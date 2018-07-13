@@ -1,5 +1,7 @@
 package com.sidenis.vasidzius;
 
+import com.codeborne.selenide.CollectionCondition;
+import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
 
 import java.util.List;
@@ -29,10 +31,11 @@ public class SecondPageVariants {
 
     private SelenideElement getRandomRadio(SelenideElement priceTable) {
         //get all radio for priceTable
-        List<SelenideElement> radioList = priceTable.$$(".radio");
+        ElementsCollection radioList = priceTable.$$(".radio");
+        radioList.shouldHave(CollectionCondition.sizeGreaterThan(1));
+        
         //select random radio
-        SelenideElement radio = radioList.get((int)(Math.round(Math.random() * (radioList.size()-1))));
-        return radio;
+        return radioList.get((int)(Math.round(Math.random() * (radioList.size()-1))));
     }
 
     private SelenideElement getPriceTableForReturn(SelenideElement priceInfo)
@@ -45,8 +48,7 @@ public class SecondPageVariants {
     private SelenideElement getPriceTableForDeparture(SelenideElement priceInfo)
     {
         //get both Price Table from priceInfo
-        List<SelenideElement> priceTableList = priceInfo.$$(".price-table");
-        return priceTableList.get(0);
+        return priceInfo.find(".price-table");
     }
 
     private SelenideElement getRandomPriceInfo()

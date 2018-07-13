@@ -9,10 +9,7 @@ import static com.codeborne.selenide.Selenide.page;
 import static org.hamcrest.CoreMatchers.anyOf;
 import static org.hamcrest.core.Is.is;
 
-/**
- * Created by VKov on 1/18/2016.
- */
-public class TestBuyingTickets{
+public class TestBuyingTickets extends TestBase {
 
     @Test
     public void testBuyingTickets()

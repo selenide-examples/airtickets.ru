@@ -10,10 +10,9 @@ import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
 
-public class TestPlusMinus3Days {
+public class TestPlusMinus3Days extends TestBase {
   @Before
   public void setUp() {
-    Configuration.browser = "chrome";
     open("http://www.airtickets.ru/");
   }
 
