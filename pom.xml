@@ -7,8 +7,8 @@
   <version>1.0-SNAPSHOT</version>
   <packaging>jar</packaging>
 
-  <name>SelenideTask1</name>
-  <url>http://maven.apache.org</url>
+  <name>selenide-airtickets.ru</name>
+  <url>https://github.com/selenide-examples/airtickets.ru</url>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -24,7 +24,7 @@
     <dependency>
       <groupId>com.codeborne</groupId>
       <artifactId>selenide</artifactId>
-      <version>4.12.2</version>
+      <version>5.4.1</version>
     </dependency>
   </dependencies>
 
