@@ -16,7 +16,7 @@ public class TestBuyingTickets extends TestBase {
     {
 
         //work with First Page
-        FirstPageDirection firstPageDirection = Selenide.open("http://www.airtickets.ru/bileti-aeroflot?gclid=CNzJ_-DQw8UCFcL3cgodeKwA0w", FirstPageDirection.class);
+        FirstPageDirection firstPageDirection = Selenide.open("https://www.airtickets.ru/bileti-aeroflot?gclid=CNzJ_-DQw8UCFcL3cgodeKwA0w", FirstPageDirection.class);
         firstPageDirection.addDirectionFrom("Санкт", "LED");
         firstPageDirection.addDirectionTo("Москва", "MOW");
         Assert.assertThat("Месяц отправления не равен текущему месяцу или следующему месяцу", firstPageDirection.getMonthDeparture(), anyOf(is(firstPageDirection.getCurrentMonth()), is(firstPageDirection.getNextMonth())));

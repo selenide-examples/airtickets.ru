@@ -13,7 +13,7 @@ import static com.codeborne.selenide.Selenide.open;
 public class TestPlusMinus3Days extends TestBase {
   @Before
   public void setUp() {
-    open("http://www.airtickets.ru/");
+    open("https://www.airtickets.ru/");
   }
 
   @Test
